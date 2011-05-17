@@ -1,9 +1,12 @@
 #!/bin/bash
 alias status='git status -s'
-alias commit='git commit'
+alias commit='git commit -a'
+alias gadd='git add .'
 alias push='git push origin master'
+alias pull='git pull origin master'
 
-alias l='ls -CFh'
+alias ls='ls -h'
+alias l='ls -CF'
 alias ll='ls -lh'
 alias la='ls -alh'
 alias mis='cat'

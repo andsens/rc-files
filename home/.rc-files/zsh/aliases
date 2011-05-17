@@ -1,16 +1,19 @@
 #!/bin/zsh
 alias status='git status -s'
-alias commit='git commit'
+alias commit='git commit -a'
+alias gadd='git add .'
 alias push='git push origin master'
+alias pull='git pull origin master'
 
 alias ls='ls -h'
 alias l='ls -CF'
-alias ll='ls -l'
-alias la='ls -al'
+alias ll='ls -lh'
+alias la='ls -alh'
 alias mis='cat'
+alias canhaz='sudo apt-get install'
 
 if [ "$system"=='Linux' ]; then
-	rm='rm -I'
+	alias rm='rm -I'
 fi
 
 # enable color support of ls and also add handy aliases
