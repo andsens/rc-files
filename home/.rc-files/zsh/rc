@@ -23,3 +23,6 @@ plugins=(git github svn osx)
 . ~/.oh-my-zsh/oh-my-zsh.sh
 
 . $DOTFILES/zsh/aliases
+
+unset DOTFILES
+unset system

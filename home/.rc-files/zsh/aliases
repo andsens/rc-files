@@ -1,6 +1,7 @@
 #!/bin/zsh
 alias status='git status -s'
 alias commit='git commit'
+alias push='git push origin master'
 
 alias ls='ls -h'
 alias l='ls -CF'
