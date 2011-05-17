@@ -1,0 +1,5 @@
+#!/bin/bash
+PS1="$bldcyn\u$txtwht@$bldgrn$HOSTNAME$txtwht:$bldblu\w$txtwht\$ "
+if type __git_ps1 >/dev/null 2>&1; then
+	PS1="$bldcyn\u$txtwht@$bldgrn$HOSTNAME$txtwht:$bldblu\w"'$(__git_ps1 " (%s)")'"$txtwht\$ "
+fi

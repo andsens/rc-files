@@ -1,0 +1,5 @@
+h1. dotfiles
+
+h3.  Install 
+
+@wget http://github.com/andsens/dotfiles/raw/master/install.sh --no-check-certificate -nv -O - | bash@

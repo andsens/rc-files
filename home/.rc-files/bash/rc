@@ -1,0 +1,21 @@
+#!/bin/bash
+system=`uname`
+
+DOTFILES=$(dirname ${BASH_ARGV[0]%/*})
+
+if [ ! -n "$HOSTNAME" ]; then
+	HOSTNAME=`hostname -s`
+fi
+
+. $DOTFILES/bash/aliases
+. $DOTFILES/bash/colors
+. $DOTFILES/bash/completion
+
+if [ "$system" == 'Linux' ]; then
+	. $DOTFILES/bash/environment.linux
+	. $DOTFILES/bash/rc.linux
+fi
+if [ "$system" == 'Darwin' ]; then
+	. $DOTFILES/bash/environment.osx
+	. $DOTFILES/bash/rc.osx
+fi
