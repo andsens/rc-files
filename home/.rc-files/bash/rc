@@ -19,5 +19,10 @@ if [ "$system" == 'Darwin' ]; then
 	. $DOTFILES/bash/environment.osx
 	. $DOTFILES/bash/rc.osx
 fi
+
 unset DOTFILES
 unset system
+
+if [ -a "~/.localenv" ]; then
+	. ~/.localenv
+fi

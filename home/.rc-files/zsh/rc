@@ -26,3 +26,7 @@ plugins=(git github svn osx)
 
 unset DOTFILES
 unset system
+
+if [ -a "~/.localenv" ]; then
+	. ~/.localenv
+fi
