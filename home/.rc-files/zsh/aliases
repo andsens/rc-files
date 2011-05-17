@@ -8,7 +8,7 @@ alias ll='ls -l'
 alias la='ls -al'
 alias mis='cat'
 
-if [ "$system" == 'Linux' ]; then
+if [ "$system"=='Linux' ]; then
 	rm='rm -I'
 fi
 
