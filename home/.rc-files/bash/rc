@@ -3,6 +3,10 @@ system=`uname`
 
 DOTFILES=$(dirname ${BASH_ARGV[0]%/*})
 
+if [ -f ~/.localenv ]; then
+	. ~/.localenv
+fi
+
 if [ ! -n "$HOSTNAME" ]; then
 	HOSTNAME=`hostname -s`
 fi
@@ -22,7 +26,3 @@ fi
 
 unset DOTFILES
 unset system
-
-if [ -a "~/.localenv" ]; then
-	. ~/.localenv
-fi

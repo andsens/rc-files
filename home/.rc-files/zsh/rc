@@ -3,6 +3,10 @@ system=`uname`
 
 DOTFILES=$(dirname $(dirname $_))
 
+if [ -f ~/.localenv ]; then
+	. ~/.localenv
+fi
+
 if [[ $system == 'Linux' ]]; then
 	. $DOTFILES/zsh/environment.linux
 	. $DOTFILES/zsh/rc.linux
@@ -26,7 +30,3 @@ plugins=(git github svn osx)
 
 unset DOTFILES
 unset system
-
-if [ -a "~/.localenv" ]; then
-	. ~/.localenv
-fi
