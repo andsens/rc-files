@@ -2,7 +2,7 @@
 alias status='git status -s'
 alias commit='git commit -a'
 alias gadd='git add .'
-alias push='git push origin master'
+alias push='git push origin --all'
 alias pull='git pull origin master'
 
 alias ls='ls -h'
