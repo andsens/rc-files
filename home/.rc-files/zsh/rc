@@ -16,15 +16,18 @@ if [[ $system == 'Darwin' ]]; then
 	. $DOTFILES/zsh/rc.osx
 fi
 
-if [[ ! -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
-	echo Installing "Oh my zsh!"
-	git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
+	export ZSH=$HOME/.oh-my-zsh
+	export ZSH_THEME="jreese"
+	if [[ $system == 'Linux' ]]; then
+		plugins=(git github svn)
+	fi
+	if [[ $system == 'Darwin' ]]; then
+		plugins=(git github svn osx)
+	fi
+	. ~/.oh-my-zsh/oh-my-zsh.sh
+	unsetopt correct_all
 fi
-
-export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="jreese"
-plugins=(git github svn osx)
-. ~/.oh-my-zsh/oh-my-zsh.sh
 
 . $DOTFILES/zsh/aliases
 

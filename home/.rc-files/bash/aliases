@@ -12,6 +12,9 @@ alias la='ls -alh'
 alias mis='cat'
 alias canhaz='sudo apt-get install'
 
+# Start vim in insert mode
+alias vi='vi -c start'
+
 if [ "$system" == 'Linux' ]; then
 	alias rm='rm -I'
 fi
