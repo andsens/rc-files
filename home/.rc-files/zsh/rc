@@ -31,5 +31,9 @@ fi
 
 . $DOTFILES/zsh/aliases
 
+if [ -f ~/.dir_colors ]; then
+    eval `dircolors ~/.dir_colors`
+fi
+
 unset DOTFILES
 unset system
