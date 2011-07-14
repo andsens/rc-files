@@ -5,22 +5,29 @@ alias gadd='git add .'
 alias push='git push origin --all'
 alias pull='git pull origin master'
 
-alias ls='ls -h'
-alias l='ls -CF'
-alias ll='ls -lh'
-alias la='ls -alh'
+if [[ -x /usr/local/bin/dircolors ]]; then
+	alias list='/usr/local/bin/ls --color=auto'
+else
+	alias list='ls'
+fi
+
+alias ls='list -h'
+alias l='list -CF'
+alias ll='list -lh'
+alias la='list -alh'
 alias mis='cat'
 alias canhaz='sudo apt-get install'
 
-# Start vim in insert mode
-alias vi='vi -c start'
+if [[ "$system" == 'Linux' ]]; then
+	alias rm='rm -I'
+fi
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
+if [[ -x /usr/bin/dircolors ]]; then
 	eval "`dircolors -b`"
-	alias ls='ls --color=auto'
+	alias list='list --color=auto'
 	
-	alias grep='grep --color=auto'
+	alias grep='grep -Hn --color=auto'
 	alias egrep='egrep --color=auto'
 	alias fgrep='fgrep --color=auto'
 fi
