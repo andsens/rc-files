@@ -5,29 +5,27 @@ alias gadd='git add .'
 alias push='git push origin --all'
 alias pull='git pull origin master'
 
-if [[ -x /usr/local/bin/dircolors ]]; then
-	alias list='/usr/local/bin/ls --color=auto'
+if [[ -x /usr/local/bin/ls ]]; then
+	alias ls='/usr/local/bin/ls -h --color=auto'
 else
-	alias list='ls'
+	alias ls='/bin/ls -h --color=auto'
 fi
 
-alias ls='list -h'
-alias l='list -CF'
-alias ll='list -lh'
-alias la='list -alh'
+alias l='ls -CF'
+alias ll='ls -lh'
+alias la='ls -alh'
 alias mis='cat'
 alias canhaz='sudo apt-get install'
+alias grep='grep -Hn'
 
 if [[ "$system" == 'Linux' ]]; then
 	alias rm='rm -I'
 fi
 
 # enable color support of ls and also add handy aliases
-if [[ -x /usr/bin/dircolors ]]; then
+if [[ -x /usr/bin/dircolors || -x /usr/local/bin/dircolors ]]; then
 	eval "`dircolors -b`"
-	alias list='list --color=auto'
-	
-	alias grep='grep -Hn --color=auto'
+	alias grep='grep --color=auto'
 	alias egrep='egrep --color=auto'
 	alias fgrep='fgrep --color=auto'
 fi
