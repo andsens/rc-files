@@ -1,2 +1,12 @@
 #!/bin/zsh
 bindkey "^[[3~" delete-char
+
+if [[ -x /usr/local/bin/ls ]]; then
+    alias ls='/usr/local/bin/ls -h --color=auto'
+else
+    alias ls='ls -hG'
+fi
+
+alias l='ls -CF'
+alias ll='ls -lh'
+alias la='ls -alh'
