@@ -27,6 +27,8 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 	fi
 	. ~/.oh-my-zsh/oh-my-zsh.sh
 	unsetopt correct_all
+	# Disable the automatic titling, it screws up tmux
+	DISABLE_AUTO_TITLE=true
 fi
 
 . $DOTFILES/zsh/aliases
