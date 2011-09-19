@@ -1,9 +1,15 @@
 #!/bin/zsh
+alias addall='git add -A'
+alias gadd='git add'
 alias status='git status -s'
 alias commit='git commit -a'
-alias gadd='git add .'
 alias push='git push origin --all'
 alias pull='git pull origin master'
+
+alias grep='grep -Hn'
+alias l='ls -CF'
+alias ll='ls -l'
+alias la='ls -al'
+
 alias mis='cat'
 alias canhaz='sudo apt-get install'
-alias grep='grep -Hn'

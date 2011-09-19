@@ -7,14 +7,6 @@ if [ -f ~/.localenv ]; then
 	. ~/.localenv
 fi
 
-if [ ! -n "$HOSTNAME" ]; then
-	HOSTNAME=`hostname -s`
-fi
-
-. $DOTFILES/bash/aliases
-. $DOTFILES/bash/colors
-. $DOTFILES/bash/completion
-
 if [ "$system" == 'Linux' ]; then
 	. $DOTFILES/bash/environment.linux
 	. $DOTFILES/bash/rc.linux
@@ -24,8 +16,16 @@ if [ "$system" == 'Darwin' ]; then
 	. $DOTFILES/bash/rc.osx
 fi
 
-if [ -f ~/.dir_colors ]; then
-	eval `dircolors ~/.dir_colors`
+if [ ! -n "$HOSTNAME" ]; then
+	HOSTNAME=`hostname -s`
+fi
+
+. $DOTFILES/bash/aliases
+. $DOTFILES/bash/colors
+. $DOTFILES/bash/completion
+
+if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
+    eval `dircolors ~/.dir_colors`
 fi
 
 unset DOTFILES

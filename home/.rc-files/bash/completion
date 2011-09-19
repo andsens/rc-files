@@ -8,7 +8,9 @@ bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
 # Check for interactive shell.
 if [ -n "$PS1" ]; then
 	if [ $bmajor -eq 2 -a $bminor '>' 04 ] || [ $bmajor -gt 2 ]; then
-		. /etc/bash_completion
+		if [ -f /etc/bash_completion ]; then
+			. /etc/bash_completion
+		fi
 	fi
 fi
 unset bash bminor bmajor
