@@ -1,10 +1,11 @@
 #!/bin/zsh
 alias addall='git add -A'
-alias gadd='git add'
+alias commitall='git commit -a'
+alias add='git add'
 alias status='git status -s'
-alias commit='git commit -a'
-alias push='git push origin --all'
-alias pull='git pull origin master'
+alias commit='git commit'
+alias push='git push'
+alias pull='git pull'
 
 alias grep='grep -Hn'
 alias l='ls -CF'
