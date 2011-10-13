@@ -8,11 +8,9 @@ if [ -f ~/.localenv ]; then
 fi
 
 if [ "$system" == 'Linux' ]; then
-	. $DOTFILES/bash/environment.linux
 	. $DOTFILES/bash/rc.linux
 fi
 if [ "$system" == 'Darwin' ]; then
-	. $DOTFILES/bash/environment.osx
 	. $DOTFILES/bash/rc.osx
 fi
 

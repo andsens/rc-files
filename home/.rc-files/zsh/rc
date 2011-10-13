@@ -23,11 +23,9 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 fi
 
 if [[ $system == 'Linux' ]]; then
-	. $DOTFILES/zsh/environment.linux
 	. $DOTFILES/zsh/rc.linux
 fi
 if [[ $system == 'Darwin' ]]; then
-	. $DOTFILES/zsh/environment.osx
 	. $DOTFILES/zsh/rc.osx
 fi
 
