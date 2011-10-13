@@ -7,7 +7,7 @@ if [ -f ~/.localenv ]; then
 	. ~/.localenv
 fi
 
-if [ "$system" == 'Linux' ]; then
+if [ "$system" == 'Linux' ]; then 
 	. $DOTFILES/bash/rc.linux
 fi
 if [ "$system" == 'Darwin' ]; then
