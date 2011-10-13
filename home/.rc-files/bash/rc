@@ -18,7 +18,7 @@ if [ ! -n "$HOSTNAME" ]; then
 	HOSTNAME=`hostname -s`
 fi
 
-. $DOTFILES/bash/aliases
+. $DOTFILES/aliases
 . $DOTFILES/bash/colors
 . $DOTFILES/bash/completion
 
