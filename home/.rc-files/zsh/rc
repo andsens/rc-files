@@ -23,15 +23,13 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 fi
 
 if [[ $system == 'Linux' ]]; then
-	. $DOTFILES/zsh/environment.linux
 	. $DOTFILES/zsh/rc.linux
 fi
 if [[ $system == 'Darwin' ]]; then
-	. $DOTFILES/zsh/environment.osx
 	. $DOTFILES/zsh/rc.osx
 fi
 
-. $DOTFILES/zsh/aliases
+. $DOTFILES/aliases
 
 if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
     eval `dircolors ~/.dir_colors`

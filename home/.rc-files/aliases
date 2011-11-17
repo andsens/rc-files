@@ -1,4 +1,3 @@
-#!/bin/zsh
 alias addall='git add -A'
 alias commitall='git commit -a'
 alias add='git add'
@@ -14,3 +13,5 @@ alias la='ls -al'
 
 alias mis='cat'
 alias canhaz='sudo apt-get install'
+
+alias sudo='sudo -s'

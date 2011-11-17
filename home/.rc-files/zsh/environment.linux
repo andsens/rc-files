@@ -1,2 +1,0 @@
-#!/bin/zsh
-typeset -x SVN_EDITOR=/usr/bin/vi

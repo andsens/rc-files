@@ -1,2 +1,0 @@
-#!/bin/bash
-export SVN_EDITOR=/usr/bin/vi

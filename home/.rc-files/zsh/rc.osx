@@ -1,4 +1,7 @@
 #!/bin/zsh
+export CLICOLOR=1
+export LSCOLORS="gxfxcxdxbxegedabagacad"
+
 bindkey "^[[3~" delete-char
 
 if [[ -x /usr/local/bin/ls ]]; then
