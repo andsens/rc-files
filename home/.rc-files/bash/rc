@@ -26,7 +26,7 @@ if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors
     eval `dircolors ~/.dir_colors`
 fi
 
-if [[ -e ~/.ssh/ssh_auth_sock ]] then
+if [[ -e ~/.ssh/ssh_auth_sock ]]; then
     export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 fi
 
