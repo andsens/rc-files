@@ -9,7 +9,9 @@ fi
 
 if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 	export ZSH=$HOME/.oh-my-zsh
-	export ZSH_THEME="jreese"
+	if [[ -z "$ZSH_THEME" ]] then
+		export ZSH_THEME="jreese"
+	fi
 	if [[ $system == 'Linux' ]]; then
 		plugins=(git github svn)
 	fi
