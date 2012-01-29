@@ -13,5 +13,3 @@ alias la='ls -al'
 
 alias mis='cat'
 alias canhaz='sudo apt-get install'
-
-alias sudo='sudo -s'
