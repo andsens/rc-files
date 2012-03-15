@@ -8,17 +8,8 @@ case "$TERM" in
 	cygwin) color_prompt=yes;;
 esac
 
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	PS1="$bldcyn\u$txtwht@$bldgrn$HOSTNAME$txtwht:$bldblu\w$txtwht\$ "
-else
-	PS1='\u@$HOSTNAME:\w\$ '
-fi
+PS1="$bldcyn\u$txtwht@$bldgrn$HOSTNAME$txtwht:$bldblu\w"'$(__git_ps1)'"$txtwht\$ "
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-	cygwin*) PS1="\[\e]0;\u@$HOSTNAME: \w\a\]$PS1";;
-	*);;
-esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -26,6 +17,6 @@ if [ -x /usr/bin/dircolors ]; then
 	alias ls='/bin/ls --color=auto'
 fi
 
-alias grep='grep -Hn --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias grep='grep -Hn'
+alias egrep='egrep'
+alias fgrep='fgrep'
