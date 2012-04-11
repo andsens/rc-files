@@ -7,10 +7,6 @@ if [ -f ~/.localenv ]; then
 	. ~/.localenv
 fi
 
-if [[ -z "$LANG" ]]; then
-	export LANG='en_US.UTF-8'
-fi
-
 if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 	export ZSH=$HOME/.oh-my-zsh
 	if [[ -z "$ZSH_THEME" ]] then
