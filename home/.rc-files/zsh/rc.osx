@@ -9,3 +9,7 @@ if [[ -x /usr/local/bin/gls ]]; then
 else
     alias ls='ls -hG'
 fi
+
+if [[ -z "$LANG" ]]; then
+	export LANG='en_US.UTF-8'
+fi
