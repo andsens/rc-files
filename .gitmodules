@@ -1,3 +1,6 @@
 [submodule "home/.oh-my-zsh"]
 	path = home/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "home/.rc-files/zsh/auto-fu"]
+	path = home/.rc-files/zsh/auto-fu
+	url = git://github.com/hchbaw/auto-fu.zsh.git
