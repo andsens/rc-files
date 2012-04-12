@@ -13,10 +13,10 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 		export ZSH_THEME="jreese"
 	fi
 	if [[ $system == 'Linux' ]]; then
-		plugins=(git github svn)
+		plugins+=(svn)
 	fi
 	if [[ $system == 'Darwin' ]]; then
-		plugins=(git github svn osx)
+		plugins+=(svn osx)
 	fi
 	. ~/.oh-my-zsh/oh-my-zsh.sh
 	unsetopt correct_all
