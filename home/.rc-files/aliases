@@ -7,8 +7,8 @@ alias unstage='git reset HEAD'
 
 alias grep='grep -Hn'
 alias l='ls -CF'
-alias ll='ls -l'
-alias la='ls -al'
+alias ll='ls -Al'
+alias la='ls -A'
 
 alias mis='cat'
 alias canhaz='sudo apt-get install'
