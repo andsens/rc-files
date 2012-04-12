@@ -12,11 +12,12 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 	if [[ -z "$ZSH_THEME" ]] then
 		export ZSH_THEME="jreese"
 	fi
+	plugins+=(ant extract history-substring-search svn)
 	if [[ $system == 'Linux' ]]; then
-		plugins+=(svn)
+		plugins+=()
 	fi
 	if [[ $system == 'Darwin' ]]; then
-		plugins+=(svn osx)
+		plugins+=(brew terminalapp osx)
 	fi
 	. ~/.oh-my-zsh/oh-my-zsh.sh
 	unsetopt correct_all
