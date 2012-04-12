@@ -7,11 +7,16 @@ if [ -f ~/.localenv ]; then
 	. ~/.localenv
 fi
 
+. $DOTFILES/bash/colors
+
 if [ "$system" == 'Linux' ]; then
 	. $DOTFILES/bash/rc.linux
 fi
 if [ "$system" == 'Darwin' ]; then
 	. $DOTFILES/bash/rc.osx
+fi
+if [ "$system" == 'MINGW32_NT-6.1' ]; then
+	. $DOTFILES/bash/rc.mingw
 fi
 
 if [ ! -n "$HOSTNAME" ]; then
@@ -19,7 +24,6 @@ if [ ! -n "$HOSTNAME" ]; then
 fi
 
 . $DOTFILES/aliases
-. $DOTFILES/bash/colors
 . $DOTFILES/bash/completion
 
 if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
