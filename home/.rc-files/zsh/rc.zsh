@@ -7,17 +7,6 @@ if [ -f ~/.localenv ]; then
 	. ~/.localenv
 fi
 
-## auto-fu.zsh stuff.
-# source auto-fu.zsh
-# { . $rcfiles/zsh/auto-fu/auto-fu; auto-fu-install; }
-# zstyle ':auto-fu:highlight' input bold
-# zstyle ':auto-fu:highlight' completion fg=black,bold
-# zstyle ':auto-fu:highlight' completion/one fg=white,bold,underline
-# zstyle ':auto-fu:var' postdisplay $''
-# zstyle ':auto-fu:var' track-keymap-skip opp
-# zle-line-init () {auto-fu-init;}; zle -N zle-line-init
-# zle -N zle-keymap-select auto-fu-zle-keymap-select
-
 if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 	export ZSH=$HOME/.oh-my-zsh
 	if [[ -z "$ZSH_THEME" ]] then
