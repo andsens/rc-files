@@ -62,6 +62,7 @@ compile-zshrc () {
 	if [[ -n $1 && $1 == "clean" ]]; then
 		find $rcfiles -name '*.zwc' -delete
 		echo 'All *.zwc files removed'
+		return
 	fi;
 	for file in `find $rcfiles -name '*.zsh' -type f -print`; do
 		zcompile $file
