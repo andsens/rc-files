@@ -37,10 +37,10 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 fi
 
 if [[ $system == 'Linux' ]]; then
-	. $DOTFILES/zsh/rc.linux
+	. $DOTFILES/zsh/rc.linux.zsh
 fi
 if [[ $system == 'Darwin' ]]; then
-	. $DOTFILES/zsh/rc.osx
+	. $DOTFILES/zsh/rc.osx.zsh
 fi
 
 . $DOTFILES/aliases

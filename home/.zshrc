@@ -1,2 +1,2 @@
 #!/bin/zsh
-. ~/.rc-files/zsh/rc
+. ~/.rc-files/zsh/rc.zsh
