@@ -1,7 +1,7 @@
 #!/bin/zsh
 system=`uname`
 
-DOTFILES=$(dirname $(dirname $_))
+rcfiles=$(dirname $(dirname $_))
 
 if [ -f ~/.localenv ]; then
 	. ~/.localenv
@@ -9,7 +9,7 @@ fi
 
 ## auto-fu.zsh stuff.
 # source auto-fu.zsh
-# { . $DOTFILES/zsh/auto-fu/auto-fu; auto-fu-install; }
+# { . $rcfiles/zsh/auto-fu/auto-fu; auto-fu-install; }
 # zstyle ':auto-fu:highlight' input bold
 # zstyle ':auto-fu:highlight' completion fg=black,bold
 # zstyle ':auto-fu:highlight' completion/one fg=white,bold,underline
@@ -37,13 +37,13 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 fi
 
 if [[ $system == 'Linux' ]]; then
-	. $DOTFILES/zsh/rc.linux.zsh
+	. $rcfiles/zsh/rc.linux.zsh
 fi
 if [[ $system == 'Darwin' ]]; then
-	. $DOTFILES/zsh/rc.osx.zsh
+	. $rcfiles/zsh/rc.osx.zsh
 fi
 
-. $DOTFILES/aliases
+. $rcfiles/aliases
 
 if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
     eval `dircolors ~/.dir_colors`
@@ -53,5 +53,20 @@ if [[ -e ~/.ssh/ssh_auth_sock ]] then
 	export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 fi
 
-unset DOTFILES
+compile-zshrc () {
+	rcfiles=$(dirname `readlink "$HOME/.zshrc"`)
+	if [[ -z $rcfiles ]]; then
+		echo "Cannot determine rcfiles location" >&2
+		return
+	fi
+	if [[ -n $1 && $1 == "clean" ]]; then
+		find $rcfiles -name '*.zwc' -delete -print
+		echo 'All *.zwc files removed'
+	fi;
+	for file in `find $rcfiles -name '*.zsh' -type f -print`; do
+		zcompile $file
+	done
+}
+
+unset rcfiles
 unset system
