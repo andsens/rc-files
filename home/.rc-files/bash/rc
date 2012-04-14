@@ -1,30 +1,30 @@
 #!/bin/bash
 system=`uname`
 
-DOTFILES=$(dirname ${BASH_ARGV[0]%/*})
+rcfiles=$(dirname ${BASH_ARGV[0]%/*})
 
 if [ -f ~/.localenv ]; then
 	. ~/.localenv
 fi
 
-. $DOTFILES/bash/colors
+. $rcfiles/bash/colors
 
 if [ "$system" == 'Linux' ]; then
-	. $DOTFILES/bash/rc.linux
+	. $rcfiles/bash/rc.linux
 fi
 if [ "$system" == 'Darwin' ]; then
-	. $DOTFILES/bash/rc.osx
+	. $rcfiles/bash/rc.osx
 fi
 if [ "$system" == 'MINGW32_NT-6.1' ]; then
-	. $DOTFILES/bash/rc.mingw
+	. $rcfiles/bash/rc.mingw
 fi
 
 if [ ! -n "$HOSTNAME" ]; then
 	HOSTNAME=`hostname -s`
 fi
 
-. $DOTFILES/aliases
-. $DOTFILES/bash/completion
+. $rcfiles/aliases
+. $rcfiles/bash/completion
 
 if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
     eval `dircolors ~/.dir_colors`
@@ -34,5 +34,5 @@ if [[ -e ~/.ssh/ssh_auth_sock ]]; then
     export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 fi
 
-unset DOTFILES
+unset rcfiles
 unset system
