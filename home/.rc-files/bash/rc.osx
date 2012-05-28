@@ -7,8 +7,8 @@ if [ -x /usr/local/bin/ls ]; then
 else
     alias ls='ls -hG'
 fi
-PS1="$bldcyn\u$txtwht@$txtgrn$HOSTNAME$txtwht:$txtblu\w$txtwht\$ "
+PS1="$bldcyn\u$txtwht@$txtgrn$HOSTNAME$txtwht:$txtblu\w$txtwht\$ $txtdef"
 # PS1="\u@$HOSTNAME:\w\$ "
 if type __git_ps1 >/dev/null 2>&1; then
-	PS1="$bldcyn\u$txtwht@$bldgrn$HOSTNAME$txtwht:$bldblu\w"'$(__git_ps1 " (%s)")'"$txtwht\$ "
+	PS1="$bldcyn\u$txtwht@$bldgrn$HOSTNAME$txtwht:$bldblu\w"'$(__git_ps1 " (%s)")'"$txtwht\$ $txtdef"
 fi

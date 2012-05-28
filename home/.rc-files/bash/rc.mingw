@@ -12,7 +12,7 @@ esac
 	. /c/Program\ Files\ \(x86\)/Git/etc/git-completion.bash
 # fi
 
-PS1="$bldcyn\u$txtwht@$bldgrn$HOSTNAME$txtwht:$bldblu\w"'$(__git_ps1)'"$txtwht\$ "
+PS1="$bldcyn\u$txtwht@$bldgrn$HOSTNAME$txtwht:$bldblu\w"'$(__git_ps1)'"$txtwht\$ $txtdef"
 
 
 # enable color support of ls and also add handy aliases
