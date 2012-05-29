@@ -7,7 +7,7 @@ alias unstage='git reset HEAD'
 
 alias grep='grep -Hn'
 alias l='ls -CF'
-alias ll='ls -Al'
+alias ll='ls -al'
 alias la='ls -A'
 
 alias mis='cat'
