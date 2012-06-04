@@ -1,6 +1,6 @@
 #!/bin/bash
 system=`uname -a`
-if [ "$system" =~ "Linux" || $system =~ "AppleTV" ]; then
+if [[ "$system" =~ "Linux" || $system =~ "AppleTV" ]]; then
 	printf 'Linux'
 	exit 0
 fi
