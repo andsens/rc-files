@@ -3,16 +3,6 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 shopt -s checkwinsize
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-	debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-	xterm-color) color_prompt=yes;;
-esac
-
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	PS1="$bldcyn\u$txtwht@$txtgrn$HOSTNAME$txtwht:$txtblu\w$txtwht\$ $txtdef"
 	if type __git_ps1 >/dev/null 2>&1; then
