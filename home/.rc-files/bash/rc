@@ -1,5 +1,5 @@
 #!/bin/bash
-system=`uname`
+system=`uname -a`
 
 rcfiles=$(dirname ${BASH_ARGV[0]%/*})
 
@@ -12,7 +12,7 @@ fi
 if [ "$system" == 'Linux' ]; then
 	. $rcfiles/bash/rc.linux
 fi
-if [ "$system" == 'Darwin' ]; then
+if [[ $system =~ "Darwin" && ! $system =~ "AppleTV" ]]; then
 	. $rcfiles/bash/rc.osx
 fi
 if [ "$system" == 'MINGW32_NT-6.1' ]; then

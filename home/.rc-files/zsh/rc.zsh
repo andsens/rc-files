@@ -1,5 +1,5 @@
 #!/bin/zsh
-system=`uname`
+system=`uname -a`
 
 rcfiles=$(dirname $(dirname $_))
 
@@ -16,7 +16,7 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 	if [[ $system == 'Linux' ]]; then
 		plugins+=()
 	fi
-	if [[ $system == 'Darwin' ]]; then
+if [[ $system =~ "Darwin" && ! $system =~ "AppleTV" ]]; then
 		plugins+=(brew terminalapp osx)
 	fi
 	. ~/.oh-my-zsh/oh-my-zsh.sh
@@ -28,7 +28,7 @@ fi
 if [[ $system == 'Linux' ]]; then
 	. $rcfiles/zsh/rc.linux.zsh
 fi
-if [[ $system == 'Darwin' ]]; then
+if [[ $system =~ "Darwin" && ! $system =~ "AppleTV" ]]; then
 	. $rcfiles/zsh/rc.osx.zsh
 fi
 
