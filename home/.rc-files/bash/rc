@@ -1,7 +1,7 @@
 #!/bin/bash
-system=`uname`
-
 rcfiles=$(dirname ${BASH_ARGV[0]%/*})
+
+system=`$rcfiles/system`
 
 if [ -f ~/.localenv ]; then
 	. ~/.localenv
@@ -12,10 +12,10 @@ fi
 if [ "$system" == 'Linux' ]; then
 	. $rcfiles/bash/rc.linux
 fi
-if [ "$system" == 'Darwin' ]; then
+if [ "$system" == 'OSX' ]; then
 	. $rcfiles/bash/rc.osx
 fi
-if [ "$system" == 'MINGW32_NT-6.1' ]; then
+if [ "$system" == 'MinGW' ]; then
 	. $rcfiles/bash/rc.mingw
 fi
 

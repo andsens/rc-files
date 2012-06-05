@@ -1,7 +1,7 @@
 #!/bin/zsh
-system=`uname`
-
 rcfiles=$(dirname $(dirname $_))
+
+system=`$rcfiles/system`
 
 if [ -f ~/.localenv ]; then
 	. ~/.localenv
@@ -16,7 +16,7 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 	if [[ $system == 'Linux' ]]; then
 		plugins+=()
 	fi
-	if [[ $system == 'Darwin' ]]; then
+	if [[ $system == 'OSX' ]]; then
 		plugins+=(brew terminalapp osx)
 	fi
 	. ~/.oh-my-zsh/oh-my-zsh.sh
@@ -28,7 +28,7 @@ fi
 if [[ $system == 'Linux' ]]; then
 	. $rcfiles/zsh/rc.linux.zsh
 fi
-if [[ $system == 'Darwin' ]]; then
+if [[ $system == 'OSX' ]]; then
 	. $rcfiles/zsh/rc.osx.zsh
 fi
 
