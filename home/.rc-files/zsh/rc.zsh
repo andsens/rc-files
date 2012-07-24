@@ -12,7 +12,7 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 	if [[ -z "$ZSH_THEME" ]] then
 		export ZSH_THEME="jreese"
 	fi
-	plugins+=(ant extract history-substring-search svn)
+	plugins+=(ant extract history-substring-search svncake npm pip)
 	if [[ $system == 'Linux' ]]; then
 		plugins+=()
 	fi
