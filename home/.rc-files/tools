@@ -2,5 +2,5 @@
 function randpass {
 	passlength=6
 	[ ! -z "$1" ] && passlength=$1
-	printf "%s\n" `< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c$passlength`
+	printf "%s\n" `< /dev/urandom tr -dc A-Za-z0-9 | head -c$passlength`
 }
