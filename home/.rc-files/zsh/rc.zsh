@@ -7,8 +7,9 @@ if [ -f ~/.localenv ]; then
 	. ~/.localenv
 fi
 
-if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
-	export ZSH=$HOME/.oh-my-zsh
+omz_dir=$HOME/.homesick/repos/oh-my-zsh
+if [[ -e $omz_dir/oh-my-zsh.sh ]] then
+	export ZSH=$omz_dir
 	if [[ -z "$ZSH_THEME" ]] then
 		export ZSH_THEME="jreese"
 	fi
@@ -19,11 +20,12 @@ if [[ -e ~/.oh-my-zsh/oh-my-zsh.sh ]] then
 	if [[ $system == 'OSX' ]]; then
 		plugins+=(brew terminalapp osx)
 	fi
-	. ~/.oh-my-zsh/oh-my-zsh.sh
+	. $omz_dir/oh-my-zsh.sh
 	unsetopt correct_all
 	# Disable the automatic titling, it screws up tmux
 	DISABLE_AUTO_TITLE=true
 fi
+unset omz_dir
 
 if [[ $system == 'Linux' ]]; then
 	. $rcfiles/zsh/rc.linux.zsh
