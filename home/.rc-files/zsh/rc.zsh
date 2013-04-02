@@ -10,12 +10,14 @@ fi
 omz_dir=$HOME/.homesick/repos/oh-my-zsh
 if [[ -e $omz_dir/oh-my-zsh.sh ]] then
 	export ZSH=$omz_dir
+	# Let homeshick handle the updating
+	DISABLE_AUTO_UPDATE="true"
 	if [[ -z "$ZSH_THEME" ]] then
 		export ZSH_THEME="jreese"
 	fi
-	plugins+=(ant extract history-substring-search svncake npm pip)
+	plugins+=(ant cake coffee extract history-substring-search npm pip)
 	if [[ $system == 'Linux' ]]; then
-		plugins+=()
+		plugins+=(debian)
 	fi
 	if [[ $system == 'OSX' ]]; then
 		plugins+=(brew terminalapp osx)
