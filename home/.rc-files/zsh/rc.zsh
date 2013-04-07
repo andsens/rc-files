@@ -48,17 +48,13 @@ if [[ -e ~/.ssh/ssh_auth_sock ]] then
 fi
 
 compile-zshrc () {
-	rcfiles=$(dirname `readlink "$HOME/.zshrc"`)
-	if [[ -z $rcfiles ]]; then
-		echo "Cannot determine rcfiles location" >&2
-		return
-	fi
+	homesick_repos=$HOME/.homesick/repos
 	if [[ -n $1 && $1 == "clean" ]]; then
-		find $rcfiles -name '*.zwc' -delete
+		find $homesick_repos -name '*.zwc' -delete
 		echo 'All *.zwc files removed'
 		return
 	fi;
-	for file in `find $rcfiles -name '*.zsh' -type f -print`; do
+	for file in `find $homesick_repos -name '*.zsh' -type f -print`; do
 		zcompile $file
 	done
 }
