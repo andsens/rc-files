@@ -17,7 +17,7 @@ if [[ -e $omz_dir/oh-my-zsh.sh ]] then
 	fi
 	plugins+=(ant cake coffee extract history-substring-search npm pip)
 	if [[ $system == 'Linux' ]]; then
-		plugins+=(debian)
+		plugins+=()
 	fi
 	if [[ $system == 'OSX' ]]; then
 		plugins+=(brew terminalapp osx)
