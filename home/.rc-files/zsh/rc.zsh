@@ -22,7 +22,7 @@ if [[ -e $omz_dir/oh-my-zsh.sh ]] then
 	if [[ $system == 'OSX' ]]; then
 		plugins+=(brew terminalapp osx)
 	fi
-	. $omz_dir/oh-my-zsh.sh
+	source $omz_dir/oh-my-zsh.sh
 	unsetopt correct_all
 	# Disable the automatic titling, it screws up tmux
 	DISABLE_AUTO_TITLE=true
