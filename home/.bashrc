@@ -1,2 +1,2 @@
 #!/bin/bash
-. ~/.rc-files/bash/rc
+. $HOME/.homesick/repos/rc-files/bash/rc

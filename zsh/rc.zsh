@@ -1,11 +1,14 @@
 #!/bin/zsh
-rcfiles=$(dirname $(dirname $_))
+rcfiles=$HOME/.homesick/repos/rc-files
 
 system=`$rcfiles/system`
 
 if [ -f ~/.localenv ]; then
-	. ~/.localenv
+	source ~/.localenv
 fi
+
+# Check if castles need refreshing
+$HOME/.homeshick --quiet refresh
 
 omz_dir=$HOME/.homesick/repos/oh-my-zsh
 if [[ -e $omz_dir/oh-my-zsh.sh ]] then
@@ -30,14 +33,14 @@ fi
 unset omz_dir
 
 if [[ $system == 'Linux' ]]; then
-	. $rcfiles/zsh/rc.linux.zsh
+	source $rcfiles/zsh/rc.linux.zsh
 fi
 if [[ $system == 'OSX' ]]; then
-	. $rcfiles/zsh/rc.osx.zsh
+	source $rcfiles/zsh/rc.osx.zsh
 fi
 
-. $rcfiles/aliases
-. $rcfiles/tools
+source $rcfiles/aliases
+source $rcfiles/tools
 
 if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
     eval `dircolors ~/.dir_colors`
