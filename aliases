@@ -14,4 +14,4 @@ alias mis='cat'
 alias canhaz='sudo apt-get install'
 
 alias a2r='sudo /etc/init.d/apache2 reload'
-alias homeshick="$HOME/.homeshick"
+alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
