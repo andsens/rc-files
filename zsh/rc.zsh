@@ -18,7 +18,7 @@ if [[ -e $omz_dir/oh-my-zsh.sh ]] then
 	if [[ -z "$ZSH_THEME" ]] then
 		export ZSH_THEME="jreese"
 	fi
-	plugins+=(ant cake coffee extract history-substring-search npm pip)
+	plugins+=(ant cake coffee extract history-substring-search npm pip colored-man)
 	if [[ $system == 'Linux' ]]; then
 		plugins+=()
 	fi
