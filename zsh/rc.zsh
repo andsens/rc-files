@@ -7,6 +7,10 @@ if [ -f ~/.localenv ]; then
 	source ~/.localenv
 fi
 
+if [ -f ~/.custom ]; then
+	source ~/.custom
+fi
+
 # Check if castles need refreshing
 $HOME/.homesick/repos/homeshick/home/.homeshick --quiet refresh 14
 
