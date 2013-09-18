@@ -12,7 +12,7 @@ if [ -f ~/.localenv ]; then
 fi
 
 # Check if castles need refreshing
-$HOME/.homesick/repos/homeshick/home/.homeshick --quiet refresh 14
+$HOME/.homesick/repos/homeshick/home/.homeshick --quiet refresh 14 $HOMESHICK_REFRESH_REPOS
 
 omz_dir=$HOME/.homesick/repos/oh-my-zsh
 if [[ -e $omz_dir/oh-my-zsh.sh ]] then
