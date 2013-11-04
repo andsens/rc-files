@@ -11,6 +11,11 @@ if [ -f ~/.localenv ]; then
 	source ~/.localenv
 fi
 
+# homeshick stuff
+source $HOME/.homesick/repos/homeshick/homeshick.sh
+# Check if castles need refreshing
+homeshick --quiet refresh 14 $HOMESHICK_REFRESH_REPOS
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 omz_dir=$HOME/.homesick/repos/oh-my-zsh
 if [[ -e $omz_dir/oh-my-zsh.sh ]] then
