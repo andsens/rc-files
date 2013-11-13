@@ -6,11 +6,20 @@ function randpass {
 }
 
 function ghblame {
-	if [[ ! -e $1 ]]; then
-		printf "%s %s\n" "$1" "does not exist" >&2
+	local fullpath=$1
+	local path_no_lineno=${fullpath%:*}
+	if [[ ! -e $path_no_lineno ]]; then
+		printf "%s %s\n" "$path_no_lineno" "does not exist" >&2
 		return 1
 	fi
-	local abs_path=$(cd "${1%/*}" &>/dev/null; printf "%s/%s" "$(pwd)" "${1##*/}")
+	local lineno=${fullpath#*:}
+	if [[ $lineno =~ [0-9]+ ]]; then
+		lineno="#L$lineno"
+	else
+		lineno=""
+	fi
+
+	local abs_path=$(cd "${path_no_lineno%/*}" &>/dev/null; printf "%s/%s" "$(pwd)" "${path_no_lineno##*/}")
 	local file_dir=${abs_path%/*}
 
 	local in_git_repo
@@ -22,7 +31,6 @@ function ghblame {
 	fi
 
 	local root=$(cd $file_dir >/dev/null; git rev-parse --show-toplevel)
-	local rel_path=${abs_path#$root}
 	local ref
 	ref=$(cd $root >/dev/null; git symbolic-ref HEAD 2>/dev/null)
 	if [[ $? != 0 ]]; then
@@ -39,7 +47,8 @@ function ghblame {
 		return 1
 	fi
 	local remote_dir
-	remote_dir=$(echo $remote_url | sed "s#https://github.com/##")
-	remote_dir=$(echo $remote_url | sed "s/git@github.com://")
-	open "https://github.com/$remote_dir/blame/$branch$rel_path"
+	remote_dir=${remote_url#git@github.com:}
+	remote_dir=${remote_dir#https://github.com/}
+	local rel_path=${abs_path#$root}
+	open "https://github.com/$remote_dir/blame/$branch$rel_path$lineno"
 }
