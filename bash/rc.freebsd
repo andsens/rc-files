@@ -1,0 +1,27 @@
+#!/bin/bash
+export HISTCONTROL=ignoreboth
+shopt -s histappend
+shopt -s checkwinsize
+
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	PS1="$bldcyn\u$txtwht@$txtgrn$HOSTNAME$txtwht:$txtblu\w$txtwht\$ $txtdef"
+	if type __git_ps1 >/dev/null 2>&1; then
+		PS1="$bldcyn\u$txtwht@$txtgrn$HOSTNAME$txtwht:$txtblu\w"'$(__git_ps1 " (%s)")'"$txtwht\$ $txtdef"
+	fi
+else
+	PS1="\u@$HOSTNAME:\w\$ "
+fi
+
+if [ "$system" == 'Linux' ]; then
+	alias rm='rm -I'
+fi
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+	eval "`dircolors -b`"
+	alias ls='/bin/ls --color=auto'
+fi
+
+alias grep='grep -Hn --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'

@@ -22,6 +22,9 @@ source $rcfiles/bash/colors
 if [[ "$system" == 'Linux' ]]; then
 	source $rcfiles/bash/rc.linux
 fi
+if [[ "$system" == 'FreeBSD' ]]; then
+	source $rcfiles/bash/rc.freebsd
+fi
 if [[ "$system" == 'OSX' ]]; then
 	source $rcfiles/bash/rc.osx
 fi
