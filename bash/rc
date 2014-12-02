@@ -3,11 +3,11 @@ rcfiles=$HOME/.homesick/repos/rc-files
 
 system=`$rcfiles/system`
 
-if [ -f ~/.custom ]; then
+if [[ -f ~/.custom ]]; then
 	source ~/.custom
 fi
 
-if [ -f ~/.localenv ]; then
+if [[ -f ~/.localenv ]]; then
 	source ~/.localenv
 fi
 
@@ -19,17 +19,17 @@ source $HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash
 
 source $rcfiles/bash/colors
 
-if [ "$system" == 'Linux' ]; then
+if [[ "$system" == 'Linux' ]]; then
 	source $rcfiles/bash/rc.linux
 fi
-if [ "$system" == 'OSX' ]; then
+if [[ "$system" == 'OSX' ]]; then
 	source $rcfiles/bash/rc.osx
 fi
-if [ "$system" == 'MinGW' ]; then
+if [[ "$system" == 'MinGW' ]]; then
 	source $rcfiles/bash/rc.mingw
 fi
 
-if [ ! -n "$HOSTNAME" ]; then
+if [[ ! -n "$HOSTNAME" ]]; then
 	HOSTNAME=`hostname -s`
 fi
 
@@ -43,6 +43,14 @@ fi
 
 if [[ -e ~/.ssh/ssh_auth_sock ]]; then
     export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+fi
+
+ls -A /etc/profile.d 2>/dev/null | grep '' >/dev/null
+if [[ $? == 0 ]]; then
+  for i in /etc/profile.d/*.sh; do
+    [[ -r $i ]] && . $i
+  done
+  unset i
 fi
 
 unset rcfiles
