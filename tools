@@ -52,3 +52,11 @@ function ghblame {
 	local rel_path=${abs_path#$root}
 	open "https://github.com/$remote_dir/blame/$branch$rel_path$lineno"
 }
+
+function epoch {
+	if [[ -z $1 ]]; then
+		date +%s
+	else
+		date -d @$1 2>/dev/null || date -r $1
+	fi
+}
