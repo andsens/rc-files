@@ -1,5 +1,5 @@
 #!/bin/sh.exe
-if [ $0 -ne 'bash' -a `uname` -eq 'MINGW32_NT-6.1' ]; then
+if [ $0 != 'bash' -a `uname` = 'MINGW32_NT-6.1' ]; then
 	exec bash
 fi
 # ~/.profile: executed by the command interpreter for login shells.
