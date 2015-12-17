@@ -7,7 +7,6 @@ alias puff='pull --ff-only'
 alias purr='git pull --rebase'
 alias unstage='git reset HEAD'
 
-alias grep='grep -Hn'
 alias l='ls -CF'
 alias ll='ls -al'
 alias la='ls -A'
