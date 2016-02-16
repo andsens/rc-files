@@ -53,6 +53,31 @@ function ghblame {
 	open "https://github.com/$remote_dir/blame/$branch$rel_path$lineno"
 }
 
+git-branch-status() {
+	# by http://github.com/jehiah
+	local head=$(git rev-parse HEAD)
+	local ahead
+	local ahead_arrow
+	local behind
+	local behind_arrow
+	printf "%-20s %-13s %s\n" "branch" "behind" "ahead"
+	for ref in $(git for-each-ref --format="%(upstream:short)" refs/heads); do
+		# git rev-list --left-right ${local}...${remote} -- 2>/dev/null >/tmp/git_upstream_status_delta || continue
+		behind=$(git rev-list ${ref}..${head} --count)
+		ahead=$(git rev-list ${head}..${ref} --count)
+		[ $behind -eq 0 ] && behind_arrow="="
+		[ $behind -gt 0 -a $behind -lt 10 ] && behind_arrow="<-"
+		[ $behind -gt 10 -a $behind -lt 100 ] && behind_arrow="<--"
+		[ $behind -gt 100 ] && behind_arrow="<---"
+		[ $ahead -eq 0 ] && ahead_arrow="="
+		[ $ahead -gt 0 -a $ahead -lt 10 ] && ahead_arrow="->"
+		[ $ahead -gt 10 -a $ahead -lt 100 ] && ahead_arrow="-->"
+		[ $ahead -gt 100 ] && ahead_arrow="--->"
+		printf "%-20s %4i %4s|%-4s %4i \n" $ref $behind $behind_arrow $ahead_arrow $ahead
+	done
+}
+
+
 function epoch {
 	if [[ -z $1 ]]; then
 		date +%s
