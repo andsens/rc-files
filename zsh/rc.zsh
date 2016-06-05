@@ -26,7 +26,7 @@ if [[ -e $omz_dir/oh-my-zsh.sh ]] then
 	if [[ -z "$ZSH_THEME" ]] then
 		ZSH_THEME="jreese"
 	fi
-	plugins+=(ant cake coffee extract history-substring-search pip colored-man vagrant)
+	plugins+=(ant cake coffee docker extract history-substring-search pip colored-man vagrant)
 	if [[ $system == 'Linux' ]]; then
 		plugins+=()
 	fi
