@@ -1,8 +1,15 @@
 #!/bin/bash
 function randpass {
-	passlength=6
-	[ ! -z "$1" ] && passlength=$1
-	printf "%s\n" `< /dev/urandom tr -dc A-Za-z0-9 | head -c$passlength`
+	passlength=${1:-6}
+	printf "%s\n" "$(LC_ALL=C tr -dc A-Za-z0-9 < /dev/urandom | head -c$passlength)"
+}
+
+function epoch {
+	if [[ -z $1 ]]; then
+		date +%s
+	else
+		date -d @$1 2>/dev/null || date -r $1
+	fi
 }
 
 function ghblame {
@@ -75,13 +82,4 @@ git-branch-status() {
 		[ $ahead -gt 100 ] && ahead_arrow="--->"
 		printf "%-20s %4i %4s|%-4s %4i \n" $ref $behind $behind_arrow $ahead_arrow $ahead
 	done
-}
-
-
-function epoch {
-	if [[ -z $1 ]]; then
-		date +%s
-	else
-		date -d @$1 2>/dev/null || date -r $1
-	fi
 }
