@@ -33,7 +33,7 @@ if [[ "$system" == 'MinGW' ]]; then
 fi
 
 if [[ ! -n "$HOSTNAME" ]]; then
-	HOSTNAME=`hostname -s`
+	HOSTNAME=$(hostname -s)
 fi
 
 source "$rcfiles/aliases"

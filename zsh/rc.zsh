@@ -50,8 +50,11 @@ if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors
     eval "$(dircolors ~/.dir_colors)"
 fi
 
-if [[ -e ~/.ssh/ssh_auth_sock ]]; then
-	export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+if find '/etc/profile.d/' -name '*.sh' -type f -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
+	for file in /etc/profile.d/*.sh; do
+		source "$file"
+	done
+	unset file
 fi
 
 unset rcfiles
