@@ -27,7 +27,7 @@ function ghblame {
 	in_git_repo=$?
 	if [[ $in_git_repo != 0 ]]; then
 		printf "%s\n" "Not in a git repo" >&2
-		return in_git_repo
+		return $in_git_repo
 	fi
 
 	local root=$(cd $file_dir >/dev/null; git rev-parse --show-toplevel)

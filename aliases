@@ -2,16 +2,8 @@ alias add='git add'
 alias status='git status -s'
 alias commit='git commit'
 alias push='git push'
-alias pull='git pull'
-alias puff='pull --ff-only'
-alias purr='git pull --rebase'
-alias unstage='git reset HEAD'
 
 alias l='ls -CF'
-alias ll='ls -al'
-alias la='ls -A'
+alias ll='ls -Al'
 
-alias mis='cat'
 alias canhaz='sudo apt-get install --no-install-recommends'
-
-alias a2r='sudo /etc/init.d/apache2 reload'
