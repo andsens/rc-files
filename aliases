@@ -2,6 +2,7 @@ alias add='git add'
 alias status='git status -s'
 alias commit='git commit'
 alias push='git push'
+alias pull='git pull'
 
 alias l='ls -CF'
 alias ll='ls -Al'
