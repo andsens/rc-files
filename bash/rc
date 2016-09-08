@@ -44,10 +44,6 @@ if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors
     eval "$(dircolors ~/.dir_colors)"
 fi
 
-if [[ -e ~/.ssh/ssh_auth_sock ]]; then
-    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-fi
-
 ls -A /etc/profile.d 2>/dev/null | grep '' >/dev/null
 if [[ $? == 0 ]]; then
   for i in /etc/profile.d/*.sh; do
