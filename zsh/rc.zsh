@@ -1,7 +1,6 @@
 #!/bin/zsh
-rcfiles=$HOME/.homesick/repos/rc-files
 
-system=$("$rcfiles/system")
+system=$("$HOME/.homesick/repos/rc-files/system")
 
 if [ -f $HOME/.custom ]; then
 	source $HOME/.custom
@@ -29,10 +28,10 @@ if [[ -e $omz_dir/oh-my-zsh.sh ]]; then
 fi
 
 if [[ $system == 'Linux' ]]; then
-	source "$rcfiles/zsh/rc.linux.zsh"
+	source "$HOME/.homesick/repos/rc-files/zsh/rc.linux.zsh"
 fi
 if [[ $system == 'OSX' ]]; then
-	source "$rcfiles/zsh/rc.osx.zsh"
+	source "$HOME/.homesick/repos/rc-files/zsh/rc.osx.zsh"
 fi
 
 if [[ -e $omz_dir/oh-my-zsh.sh ]]; then
