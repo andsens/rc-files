@@ -43,10 +43,6 @@ if [[ -e $omz_dir/oh-my-zsh.sh ]]; then
 fi
 unset omz_dir
 
-if [[ -f $HOME/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
-    eval "$(dircolors $HOME/.dir_colors)"
-fi
-
 if find '/etc/profile.d/' -name '*.sh' -type f -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
 	for file in /etc/profile.d/*.sh; do
 		source "$file"
