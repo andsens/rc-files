@@ -19,8 +19,8 @@ unset HOMESHICK_REFRESH_REPOS
 
 source "$rcfiles/bash/colors"
 
-if [[ -f "$HOME/.homesick/repos/rc-files/zsh/rc.$system.zsh" ]]; then
-  source "$HOME/.homesick/repos/rc-files/zsh/rc.$system.zsh"
+if [[ -f "$HOME/.homesick/repos/rc-files/bash/rc.$system" ]]; then
+  source "$HOME/.homesick/repos/rc-files/bash/rc.$system"
 fi
 
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
@@ -34,8 +34,7 @@ if [[ -f $HOME/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dirco
     eval "$(dircolors $HOME/.dir_colors)"
 fi
 
-ls -A /etc/profile.d 2>/dev/null | grep '' >/dev/null
-if $?; then
+if find '/etc/profile.d/' -name '*.sh' -type f -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
   for i in /etc/profile.d/*.sh; do
     [[ -r $i ]] && . "$i"
   done
