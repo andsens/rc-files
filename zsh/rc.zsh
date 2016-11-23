@@ -17,27 +17,23 @@ homeshick --quiet refresh 56 $HOMESHICK_REFRESH_REPOS
 unset HOMESHICK_REFRESH_REPOS
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
-omz_dir=$HOME/.homesick/repos/oh-my-zsh
-if [[ -e $omz_dir/oh-my-zsh.sh ]]; then
-	export ZSH=$omz_dir
+if [[ -e $HOME/.homesick/repos/oh-my-zsh/oh-my-zsh.sh ]]; then
+	export ZSH=$HOME/.homesick/repos/oh-my-zsh
 	# Let homeshick handle the updating
 	DISABLE_AUTO_UPDATE="true"
 	if [[ -z "$ZSH_THEME" ]]; then
 		ZSH_THEME="jreese"
 	fi
+
+	source "$HOME/.homesick/repos/oh-my-zsh/oh-my-zsh.sh"
+	unsetopt correct_all
+	# Disable the automatic titling, it screws up tmux
+	DISABLE_AUTO_TITLE=true
 fi
 
 if [[ -f "$HOME/.homesick/repos/rc-files/zsh/rc.$system.zsh" ]]; then
 	source "$HOME/.homesick/repos/rc-files/zsh/rc.$system.zsh"
 fi
-
-if [[ -e $omz_dir/oh-my-zsh.sh ]]; then
-	source "$omz_dir/oh-my-zsh.sh"
-	unsetopt correct_all
-	# Disable the automatic titling, it screws up tmux
-	DISABLE_AUTO_TITLE=true
-fi
-unset omz_dir
 
 if find '/etc/profile.d/' -name '*.sh' -type f -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
 	for file in /etc/profile.d/*.sh; do
