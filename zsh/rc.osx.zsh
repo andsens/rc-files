@@ -7,5 +7,3 @@ fi
 
 # Prevent '._' files from being tared
 alias tar='COPYFILE_DISABLE=true tar'
-
-plugins+=(osx)
