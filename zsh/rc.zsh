@@ -44,7 +44,6 @@ fi
 unset omz_dir
 
 source "$rcfiles/aliases"
-source "$rcfiles/tools"
 
 if [[ -f $HOME/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
     eval "$(dircolors $HOME/.dir_colors)"
