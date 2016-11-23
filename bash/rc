@@ -16,29 +16,30 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 # Check if castles need refreshing
 homeshick --quiet refresh 56 $HOMESHICK_REFRESH_REPOS
 unset HOMESHICK_REFRESH_REPOS
-source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 source "$rcfiles/bash/colors"
 
 if [[ "$system" == 'Linux' ]]; then
-	source "$rcfiles/bash/rc.linux"
+    source "$rcfiles/bash/rc.linux"
 fi
 if [[ "$system" == 'FreeBSD' ]]; then
-	source "$rcfiles/bash/rc.freebsd"
+    source "$rcfiles/bash/rc.freebsd"
 fi
 if [[ "$system" == 'OSX' ]]; then
-	source "$rcfiles/bash/rc.osx"
+    source "$rcfiles/bash/rc.osx"
 fi
 if [[ "$system" == 'MinGW' ]]; then
-	source "$rcfiles/bash/rc.mingw"
+    source "$rcfiles/bash/rc.mingw"
 fi
+
+source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+source "$rcfiles/bash/completion"
 
 if [[ ! -n "$HOSTNAME" ]]; then
 	HOSTNAME=$(hostname -s)
 fi
 
 source "$rcfiles/aliases"
-source "$rcfiles/bash/completion"
 source "$rcfiles/tools"
 
 if [[ -f $HOME/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
@@ -46,7 +47,7 @@ if [[ -f $HOME/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dirco
 fi
 
 ls -A /etc/profile.d 2>/dev/null | grep '' >/dev/null
-if [[ $? == 0 ]]; then
+if $?; then
   for i in /etc/profile.d/*.sh; do
     [[ -r $i ]] && . "$i"
   done
