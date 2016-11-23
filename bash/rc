@@ -19,17 +19,8 @@ unset HOMESHICK_REFRESH_REPOS
 
 source "$rcfiles/bash/colors"
 
-if [[ "$system" == 'Linux' ]]; then
-    source "$rcfiles/bash/rc.linux"
-fi
-if [[ "$system" == 'FreeBSD' ]]; then
-    source "$rcfiles/bash/rc.freebsd"
-fi
-if [[ "$system" == 'OSX' ]]; then
-    source "$rcfiles/bash/rc.osx"
-fi
-if [[ "$system" == 'MinGW' ]]; then
-    source "$rcfiles/bash/rc.mingw"
+if [[ -f "$HOME/.homesick/repos/rc-files/zsh/rc.$system.zsh" ]]; then
+  source "$HOME/.homesick/repos/rc-files/zsh/rc.$system.zsh"
 fi
 
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"

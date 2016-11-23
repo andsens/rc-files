@@ -27,11 +27,8 @@ if [[ -e $omz_dir/oh-my-zsh.sh ]]; then
 	fi
 fi
 
-if [[ $system == 'Linux' ]]; then
-	source "$HOME/.homesick/repos/rc-files/zsh/rc.linux.zsh"
-fi
-if [[ $system == 'OSX' ]]; then
-	source "$HOME/.homesick/repos/rc-files/zsh/rc.osx.zsh"
+if [[ -f "$HOME/.homesick/repos/rc-files/zsh/rc.$system.zsh" ]]; then
+	source "$HOME/.homesick/repos/rc-files/zsh/rc.$system.zsh"
 fi
 
 if [[ -e $omz_dir/oh-my-zsh.sh ]]; then

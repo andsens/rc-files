@@ -1,19 +1,19 @@
 #!/bin/bash
 system=`uname -a`
 if [[ "$system" =~ "Linux" || $system =~ "AppleTV" ]]; then
-	printf 'Linux'
+	printf 'linux'
 	exit 0
 fi
 if [[ $system =~ "Darwin" && ! $system =~ "AppleTV" ]]; then
-	printf 'OSX'
+	printf 'osx'
 	exit 0
 fi
 if [[ $system =~ "FreeBSD" ]]; then
-	printf 'FreeBSD'
+	printf 'freebsd'
 	exit 0
 fi
 if [[ $system == "MINGW32_NT-6.1" ]]; then
-	printf 'MinGW'
+	printf 'mingw'
 	exit 0
 fi
 
