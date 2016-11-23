@@ -83,3 +83,11 @@ git-branch-status() {
 		printf "%-20s %4i %4s|%-4s %4i \n" $ref $behind $behind_arrow $ahead_arrow $ahead
 	done
 }
+
+docker-clean-images() {
+	docker images -q --filter "dangling=true" | xargs docker rmi
+}
+
+docker-rm-dead-containers() {
+	docker ps -a -q --filter "status=exited" --filter "status=dead" | xargs docker rm
+}
