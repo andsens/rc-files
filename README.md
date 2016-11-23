@@ -14,7 +14,6 @@ Inclusion order:
 0. `zsh/rc.[OS].zsh`
 0. `zsh/rc.[OS].zsh`
 0. `$HOME/.homesick/repos/oh-my-zsh/oh-my-zsh.sh`
-0. `aliases`
 0. `$HOME/.dir_colors`
 0. `/etc/profile.d/*.sh`
 
@@ -32,6 +31,5 @@ Inclusion order:
 0. `bash/rc.[OS]`
 0. `$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash`
 0. `bash/completion`
-0. `aliases`
 0. `$HOME/.dir_colors`
 0. `/etc/profile.d/*.sh`
