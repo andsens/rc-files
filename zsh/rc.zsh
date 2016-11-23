@@ -3,12 +3,12 @@ rcfiles=$HOME/.homesick/repos/rc-files
 
 system=$("$rcfiles/system")
 
-if [ -f ~/.custom ]; then
-	source ~/.custom
+if [ -f $HOME/.custom ]; then
+	source $HOME/.custom
 fi
 
-if [ -f ~/.localenv ]; then
-	source ~/.localenv
+if [ -f $HOME/.localenv ]; then
+	source $HOME/.localenv
 fi
 
 # homeshick stuff
@@ -46,8 +46,8 @@ unset omz_dir
 source "$rcfiles/aliases"
 source "$rcfiles/tools"
 
-if [[ -f ~/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
-    eval "$(dircolors ~/.dir_colors)"
+if [[ -f $HOME/.dir_colors && ( -x /usr/local/bin/dircolors || -x /usr/bin/dircolors ) ]]; then
+    eval "$(dircolors $HOME/.dir_colors)"
 fi
 
 if find '/etc/profile.d/' -name '*.sh' -type f -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
